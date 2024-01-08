@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/Bootstrap@5.2.2/dist/css/Bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">  
+    <script src="https://cdn.jsdelivr.net/npm/Bootstrap@5.2.2/dist/js/Bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>  
+	<script src="https://cdn.jsdelivr.net/npm/Bootstrap@5.2.2/dist/js/Bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>  
+	<script  
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">  
+	</script>  
+
+	<title>DustEater</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Dust Eater</a>
+			<form action="#">
+				<div class="form-input">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="profile">
+				<img src="img/logo1.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="../index.html">Home</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3>25%</h3>
+						<p>Debu Sedikit</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3>50%</h3>
+						<p>Debu Sedang</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3>75%</h3>
+						<p>Debu banyak</p>
+					</span>
+				</li>
+			</ul>
+			<br>
+			<div class="container">  
+				<h2 style="text-align: center; color:rgba(153,205,1,0.6)";>Kecepatan Vacuum Cleaner</h2>  
+				<div>  
+					<canvas id="myLineChart"></canvas>  
+				</div>  
+			</div>
+			<br>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Pengecekan</h3>
+					</div>
+					<p style="text-align: justify;">Penerapan metode fuzzy mamdani dibuat sebagai
+						alat bantu untuk menentukan besar hisapan dari vacuum
+						cleaner. Dalam simulasi logika fuzzy dengan
+						menggunakan matlab diperoleh output yang efektif
+						dalam menangani masalah yang ada.
+						<br>
+						Untuk permukaan
+						lantai dibagi menjadi tiga macam karakteristik lantai,
+						diantaranya adalah sebagai berikut.
+						<br>
+						1.Permukaan lantai halus, contohnya keramik.
+						ketika permukaan lantai harus maka kecepatan vacuum sebesar 25%
+						<br>
+						2.Permukaan lantai sedang, contohnya karpet yang
+						tipis.
+						ketika permukaan lantai harus maka kecepatan vacuum sebesar 50%
+						<br>
+						3.Permukaan lantai kasar, contohnya karpet tebal
+						ketika permukaan lantai harus maka kecepatan vacuum sebesar 75%
+					</p>
+				</div>
+			</div>  
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+	
+	<script>  
+		var ctx = document.getElementById("myLineChart").getContext("2d");  
+		var myChart = new Chart(ctx, {  
+		type: "line",  
+		data: {  
+			labels: [  
+			"Halus",  
+			"Sedang",  
+			"Kasar",  
+			],  
+			datasets: [  
+			{  
+				label: "Kecepatan",  
+				data: [25, 50 , 75],  
+				backgroundColor: "rgba(153,205,1,0.6)",  
+			},  
+			],  
+		},  
+		});  
+	</script>  
+	<script src="script.js"></script>
+
+</body>
+</html>
